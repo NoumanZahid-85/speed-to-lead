@@ -1,5 +1,13 @@
 <div align="center">
 
+# ⚡ Speed-to-Lead — AI Lead Router & Enrichment Pipeline
+
+**Catch every hot lead in under 10 seconds — while you're busy doing everything else.**
+
+FastAPI · LangGraph · Groq AI · Neon Postgres · Slack · Resend · Render — **$0/month running cost**
+
+</div>
+
 ---
 
 ## Why this project exists (Why I choose this problem)
@@ -27,11 +35,11 @@ The whole pipeline runs in **under 10 seconds**, end to end.
 
 ## What it does — at a glance
 
-| Lead type          | Score   | What happens automatically                                                                         |
-| ------------------ | ------- | -------------------------------------------------------------------------------------------------- |
-| 🔥**Hot**    | 45–100 | Instant**Slack alert** with name, email, phone, score & reasoning — you call them back fast |
-| 🟡**Warm**   | 25–44  | Automatic**personal thank-you email** (via Resend) — they feel looked after                 |
-| ❄️**Cold** | 0–24   | Quietly stored & tracked — no spam, no wasted attention                                           |
+| Lead type   | Score  | What happens automatically                                                                   |
+| ----------- | ------ | -------------------------------------------------------------------------------------------- |
+| 🔥 **Hot**  | 45–100 | Instant **Slack alert** with name, email, phone, score & reasoning — you call them back fast |
+| 🟡 **Warm** | 25–44  | Automatic **personal thank-you email** (via Resend) — they feel looked after                 |
+| ❄️ **Cold** | 0–24   | Quietly stored & tracked — no spam, no wasted attention                                      |
 
 The demo page includes a **live pipeline visualizer** — submit a lead and watch it flow through _Enrich → Score → Route_ in real time.
 
@@ -39,12 +47,12 @@ The demo page includes a **live pipeline visualizer** — submit a lead and watc
 
 ## 📸 See it in action
 
-|                                                                                    |                                                                          |
-| :---------------------------------------------------------------------------------: | :----------------------------------------------------------------------: |
+|                                                                              |                                                                   |
+| :--------------------------------------------------------------------------: | :---------------------------------------------------------------: |
 | **Demo web app** — lead capture form + live pipeline trace + stats dashboard | **Hot lead alert in Slack** — instant ping with full lead details |
-|                          ![Demo web app](Images/webUI.png)                          |                    ![Slack alert](Images/slackUI.png)                    |
-|            **Warm lead email** — automatic reply sent via Resend            |       **Neon Postgres** — every lead persisted, never lost       |
-|                       ![Resend email](Images/resendEmail.png)                       |                   ![Neon database](Images/NeonDB.png)                   |
+|                      ![Demo web app](Images/webUI.png)                       |                ![Slack alert](Images/slackUI.png)                 |
+|            **Warm lead email** — automatic reply sent via Resend             |       **Neon Postgres** — every lead persisted, never lost        |
+|                   ![Resend email](Images/resendEmail.png)                    |                ![Neon database](Images/NeonDB.png)                |
 
 ---
 
@@ -114,15 +122,15 @@ flowchart TD
 
 ## ✅ What works today (verified & tested)
 
-| Capability                                                     | Status     | How it was verified                                               |
-| -------------------------------------------------------------- | ---------- | ----------------------------------------------------------------- |
-| Lead ingestion with**duplicate protection**              | ✅ Working | Same webhook sent twice → processed exactly once (tested)        |
+| Capability                                               | Status     | How it was verified                                               |
+| -------------------------------------------------------- | ---------- | ----------------------------------------------------------------- |
+| Lead ingestion with **duplicate protection**             | ✅ Working | Same webhook sent twice → processed exactly once (tested)         |
 | **AI enrichment** (Groq llama-3.1-8b-instant, free tier) | ✅ Working | Industry / company size / pain points inferred per lead           |
 | **Deterministic scoring** (hot / warm / cold)            | ✅ Working | 11 automated tests, incl. edge cases & failure degradation        |
-| **Slack alerts** for hot leads                           | ✅ Working | Hot lead → formatted alert with score breakdown arrives in Slack |
-| **Email via Resend** for warm leads                      | ✅ Working | Warm lead → personal reply email delivered to the lead's inbox   |
+| **Slack alerts** for hot leads                           | ✅ Working | Hot lead → formatted alert with score breakdown arrives in Slack  |
+| **Email via Resend** for warm leads                      | ✅ Working | Warm lead → personal reply email delivered to the lead's inbox    |
 | **Neon Postgres persistence**                            | ✅ Working | Every lead stored with status, score & latency; survives restarts |
-| **Stats dashboard** (`/stats`)                         | ✅ Working | Live counts by status, average latency, oldest unresolved lead    |
+| **Stats dashboard** (`/stats`)                           | ✅ Working | Live counts by status, average latency, oldest unresolved lead    |
 | **$0/month hosting** (Render free + Neon free)           | ✅ Working | Full stack deployed at zero running cost                          |
 | **End-to-end speed**                                     | ✅ Working | Pipeline completes in < 10 s, logged per lead                     |
 
@@ -130,15 +138,15 @@ flowchart TD
 
 ## 🧰 Tech stack
 
-| Layer         | Technology                                  | Why                                                                |
-| ------------- | ------------------------------------------- | ------------------------------------------------------------------ |
-| API           | **FastAPI** (async)                   | Native async → instant webhook acknowledgement, no blocking       |
-| Orchestration | **LangGraph**                         | Explicit pipeline graph with per-step error handling & checkpoints |
-| AI enrichment | **Groq** — llama-3.1-8b-instant      | Free tier, very fast inference, OpenAI-compatible                  |
-| Scoring       | **Pure Python** (deterministic)       | Free, instant, unit-tested, explainable to any client              |
-| Database      | **Neon PostgreSQL** (serverless)      | Persistent free tier, scale-to-zero, no data expiry                |
-| Notifications | **Slack webhooks** + **Resend** | Free tiers, 5-minute setup, no approval process                    |
-| Hosting       | **Render** (free web service)         | $0/month, deploys straight from GitHub                             |
+| Layer         | Technology                       | Why                                                                |
+| ------------- | -------------------------------- | ------------------------------------------------------------------ |
+| API           | **FastAPI** (async)              | Native async → instant webhook acknowledgement, no blocking        |
+| Orchestration | **LangGraph**                    | Explicit pipeline graph with per-step error handling & checkpoints |
+| AI enrichment | **Groq** — llama-3.1-8b-instant  | Free tier, very fast inference, OpenAI-compatible                  |
+| Scoring       | **Pure Python** (deterministic)  | Free, instant, unit-tested, explainable to any client              |
+| Database      | **Neon PostgreSQL** (serverless) | Persistent free tier, scale-to-zero, no data expiry                |
+| Notifications | **Slack webhooks** + **Resend**  | Free tiers, 5-minute setup, no approval process                    |
+| Hosting       | **Render** (free web service)    | $0/month, deploys straight from GitHub                             |
 
 ---
 
@@ -199,10 +207,10 @@ Open **http://localhost:8000** — submit a test lead and watch the pipeline tra
 
 ## 🔌 API
 
-| Endpoint          | Method | Description                                                                |
-| ----------------- | ------ | -------------------------------------------------------------------------- |
+| Endpoint        | Method | Description                                                                |
+| --------------- | ------ | -------------------------------------------------------------------------- |
 | `/`             | GET    | Demo form with live pipeline trace & stats dashboard                       |
-| `/webhook/lead` | POST   | Accept a lead (JSON) — returns instantly, processes in background         |
+| `/webhook/lead` | POST   | Accept a lead (JSON) — returns instantly, processes in background          |
 | `/stats`        | GET    | Pipeline health: counts by status, avg latency, failures                   |
 | `/leads`        | GET    | List of all processed leads with their scores, status, and processing logs |
 | `/health`       | GET    | Liveness check for Render                                                  |
@@ -226,13 +234,13 @@ Required: `name`, `email`. Everything else is optional. Sending the same payload
 
 ## ⚖️ How scoring works (fully transparent)
 
-| Signal                                                    | Points |
-| --------------------------------------------------------- | ------ |
-| Phone number provided                                     | +15    |
-| Company domain provided                                   | +10    |
+| Signal                                                   | Points |
+| -------------------------------------------------------- | ------ |
+| Phone number provided                                    | +15    |
+| Company domain provided                                  | +10    |
 | Urgency keywords in message ("asap", "urgent", "today"…) | +10    |
-| Company size identified by AI                             | +20    |
-| Industry inferred by AI                                   | +5     |
+| Company size identified by AI                            | +20    |
+| Industry inferred by AI                                  | +5     |
 
 - **Hot ≥ 45** → Slack alert · **Warm ≥ 25** → email · **Cold < 25** → stored only
 - Score is clamped to 0–100
@@ -254,16 +262,16 @@ pytest tests/ -v
 
 This is a deliberately honest list — these are the things v1 intentionally does _not_ do yet, so you know exactly what you're getting:
 
-| Not included in v1                                                     | Why / What's planned                                                                                                                                          |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Not included in v1                                               | Why / What's planned                                                                                                                                          |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Meta / Google Lead Ads direct integration**                    | Requires lengthy platform app-review approval. The webhook contract is generic, so plugging a real ads-provider webhook in is a small adapter, not a rewrite. |
-| **Multi-tenant SaaS** (client logins, billing, tenant isolation) | v1 is a single-tenant, deploy-per-client model — each client gets their own instance. Auth & billing are a planned phase.                                    |
+| **Multi-tenant SaaS** (client logins, billing, tenant isolation) | v1 is a single-tenant, deploy-per-client model — each client gets their own instance. Auth & billing are a planned phase.                                     |
 | **Multi-day nurture drip email sequences**                       | v1 sends one automatic reply email. A drip engine (e.g., follow-up after 24h, 3 days, 7 days) is the natural next phase.                                      |
 | **WhatsApp notifications**                                       | Same platform-approval overhead as Meta Ads. Noted as a possible future channel adapter.                                                                      |
-| **Celery / Redis distributed task queue**                        | Deliberately replaced with in-process async — correct at this scale and keeps cost at $0. Swap-in ready if a client's volume ever justifies it.              |
+| **Celery / Redis distributed task queue**                        | Deliberately replaced with in-process async — correct at this scale and keeps cost at $0. Swap-in ready if a client's volume ever justifies it.               |
 | **ML-based scoring**                                             | Current scoring is transparent rules (better for explaining "why" to a client). An ML model trained on real client lead history is a natural v2 upgrade.      |
 | **Authentication on the webhook endpoint**                       | v1 endpoints are open (public webhook URL). A secret-token check is a planned hardening step for production use.                                              |
-| **Phone / SMS follow-up**                                        | Hot leads are alerted in Slack so_you_ make the call — automated SMS outreach is a future channel option.                                                  |
+| **Phone / SMS follow-up**                                        | Hot leads are alerted in Slack so _you_ make the call — automated SMS outreach is a future channel option.                                                    |
 
 ---
 
@@ -299,3 +307,9 @@ MIT — free to use, adapt, and resell.
 ---
 
 <div align="center">
+
+**Built by [Nouman Zahid](https://github.com/NoumanZahid-85)** · FastAPI + LangGraph + Groq + Neon
+
+_"Speed wins. Every second between a lead arriving and you responding is money lost."_
+
+</div>
