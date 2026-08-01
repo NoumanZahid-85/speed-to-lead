@@ -71,7 +71,7 @@ flowchart TD
         Respond 200 instantly"]
     end
 
-    subgraph DB[(Neon PostgreSQL)]
+    subgraph DB["Neon PostgreSQL"]
         C["leads table
         status: received → enriched → scored → routed / nurture / cold / needs_review"]
     end
