@@ -155,7 +155,7 @@ flowchart TD
 
 ```bash
 # 1. Clone & enter
-git clone https://github.com/NoumanZahid-85/Speed_to_Lead.git
+git clone https://github.com/NoumanZahid-85/speed-to-lead.git
 cd Speed_to_Lead
 
 # 2. Virtual environment
